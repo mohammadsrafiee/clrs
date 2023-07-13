@@ -1,14 +1,11 @@
-package ir.clrs.algorithms.sort;
+package ir.clrs.algorithms.unit06;
 
-import ir.clrs.algorithms.core.utils.ArrayUtils;
+import ir.clrs.algorithms.core.utils.PrintUtils;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class HeapSortTest {
-
     @Test
     public void doHeapSortTest() {
         LinkedList<Integer> input = new LinkedList<>();
@@ -18,11 +15,8 @@ class HeapSortTest {
         input.add(5);
         input.add(6);
         input.add(7);
-        System.out.println("Original array:");
-        ArrayUtils.print(input);
+        PrintUtils.print(input, "Original array:");
         HeapSort.sort(input);
-        System.out.println("Sorted array:");
-        ArrayUtils.print(input);
+        PrintUtils.print(input, "Sorted array:");
     }
-
 }

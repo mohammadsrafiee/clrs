@@ -1,16 +1,16 @@
-package ir.clrs.algorithms.sort;
+package ir.clrs.algorithms.unit02;
 
 import java.util.LinkedList;
 
 public class MergeSort {
 
-    public static void sort(LinkedList<Integer> input) {
+    public static <T extends Comparable<T>> void sort(LinkedList<T> input) {
         if ((input == null) || (input.size() <= 1)) return;
         int n = input.size();
         int mid = n / 2;
         // Divide the array into two halves
-        LinkedList<Integer> left = new LinkedList<>(input.subList(0, mid));
-        LinkedList<Integer> right = new LinkedList<>(input.subList(mid, n));
+        LinkedList<T> left = new LinkedList<>(input.subList(0, mid));
+        LinkedList<T> right = new LinkedList<>(input.subList(mid, n));
         // Recursively sort the two halves
         sort(left);
         sort(right);
@@ -18,12 +18,12 @@ public class MergeSort {
         merge(input, left, right);
     }
 
-    private static void merge(LinkedList<Integer> input, LinkedList<Integer> left, LinkedList<Integer> right) {
+    private static <T extends Comparable<T>> void merge(LinkedList<T> input, LinkedList<T> left, LinkedList<T> right) {
         int i = 0, // Index for left subarray
                 j = 0,// Index for right subarray
                 k = 0; // Index for merged array
         while (i < left.size() && j < right.size()) {
-            if (left.get(i) <= right.get(j)) input.set(k++, left.get(i++));
+            if (right.get(j).compareTo(left.get(i)) >= 0) input.set(k++, left.get(i++));
             else input.set(k++, right.get(j++));
         }
         // Copy remaining elements from left subarray

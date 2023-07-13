@@ -1,12 +1,11 @@
-package ir.clrs.algorithms.sort;
+package ir.clrs.algorithms.unit02;
 
-import ir.clrs.algorithms.core.utils.ArrayUtils;
+import ir.clrs.algorithms.core.utils.PrintUtils;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
 
 class InsertionSortTest {
-
     @Test
     public void doInsertionSortTest() {
         LinkedList<Integer> input = new LinkedList<>();
@@ -16,10 +15,8 @@ class InsertionSortTest {
         input.add(5);
         input.add(6);
         input.add(7);
-        System.out.println("Original array:");
-        ArrayUtils.print(input);
+        PrintUtils.print(input, "Original array:");
         InsertionSort.sort(input);
-        System.out.println("Sorted array:");
-        ArrayUtils.print(input);
+        PrintUtils.print(input, "Sorted array:");
     }
 }
